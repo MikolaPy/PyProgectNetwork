@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %} Last Advird on site {% endblock %}
+{% block header %} Last Advird on site {% endblock %}
+{% block content %}
+
+	{% for post in posts %}
+	<h3>
+		Author : {{ post.author.get_full_name }}, Date publ :{{ post.pub_date|date:"d M Y" }}
+	</h3>
+	<p>{{ post.text|linebreaksbr }}</p>
+	{% if not forloop.last %}<hr>{% endif %}
+	{% endfor %}
+
+{% endblock %}
+

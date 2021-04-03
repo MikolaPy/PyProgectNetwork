@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %} Last Advird on site {% endblock %}
+{% block header %} Last Advird on site {% endblock %}
+{% block content %}
+
+	{% for post in page %}
+	<h3>
+		Author : {{ post.author.get_full_name }}, Date publ :{{ post.pub_date|date:"d M Y" }}
+	</h3>
+	<p>{{ post.text|linebreaksbr }}</p>
+	{% if not forloop.last %}<hr>{% endif %}
+	{% endfor %}
+
+	{% if page.has_other_pages %} 
+		{% include "paginator.html" with items=page paginator=paginator %} 
+	{% endif %} 
+{% endblock %}
+

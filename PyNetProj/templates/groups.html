@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %} ALL GROUPS {% endblock %} 
+{% block header %} all groups  {% endblock %}
+{% block content %}
+
+	{% for group in names_groups %}
+	<h3>
+			<a href="{{ group.get_absolute_url }}">{{ group.title }}
+</a>
+	</h3>
+	<p>{{ group.discription }}</p>
+
+	{% endfor %}			
+{% endblock %}
+
+
